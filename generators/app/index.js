@@ -36,7 +36,7 @@ module.exports = yeoman.Base.extend({
     gulp: function () {
       this.fs.copy(
         this.templatePath('gulpfile.babel.js'),
-        this.destinationPath('gulpfile.bable.js')
+        this.destinationPath('gulpfile.babel.js')
       );
 
       this.fs.copy(
@@ -71,6 +71,13 @@ module.exports = yeoman.Base.extend({
       );
     },
 
+    eslint: function () {
+      this.fs.copy(
+        this.templatePath('.eslintrc'),
+        this.destinationPath('.eslintrc')
+      );
+    },
+
     editorConfig: function () {
       this.fs.copy(
         this.templatePath('.editorconfig'),
@@ -99,6 +106,16 @@ module.exports = yeoman.Base.extend({
       this.fs.copy(
         this.templatePath('src/main.js'),
         this.destinationPath('src/main.js')
+      );
+    },
+
+    readme: function () {
+      this.fs.copyTpl(
+        this.templatePath('README.md'),
+        this.destinationPath('README.md'),
+        {
+          name: this.props.name || 'react-css-modulesify'
+        }
       );
     }
   },

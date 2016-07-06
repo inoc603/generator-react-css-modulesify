@@ -52,8 +52,6 @@ function printErrorStack(err) {
 
 function getBrowserifyStream(opts) {
   opts = opts || {}
-  console.log(__dirname, path.join(
-    opts.staticsDir, `css/${path.basename(opts.file, '.js')}.css`))
   return browserify({
     entries: [opts.file],
     transform: [babelify],
@@ -82,7 +80,7 @@ function buildJsAndCss(file, vendors, staticsDir) {
   .on('error', printErrorStack)
   .bundle()
   .pipe(source(path.basename(file)))
-  .pipe(streamify(uglifyjs()))
+  .pipe(gulpIf(isProd, streamify(uglifyjs())))
   .pipe(gulp.dest(path.join(staticsDir, 'js')))
 }
 
