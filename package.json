@@ -1,6 +1,6 @@
 {
   "name": "generator-react-css-modulesify",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "React + css-modulesify + gulp + browserify",
   "homepage": "",
   "author": {

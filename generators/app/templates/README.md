@@ -6,6 +6,8 @@
 
 The project makes two bundles: one for vendors dependencies, which does not change very often, and one for your app. For every entry file, a compiled css file will be created under `statics/css` e.g. `main.css`.
 
+You can define vendor dependencies and entry files by udpating `VENDORS` and `ENTRIES` in `gulpfile.babel.js` 
+
 ```bash
 # Build vendor bundle
 gulp build:vendor
